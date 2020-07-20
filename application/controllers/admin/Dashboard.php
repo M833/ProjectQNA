@@ -196,25 +196,19 @@ class dashboard extends CI_Controller
     }
     public function searchquestion()
     {
-        //if the form was submitted and the student name feild was posted
         if ($this->input->post("searchquestion")) {
             $formsearchquestion = $this->input->post("searchquestion");
 
-            // call student_model.searchStudentByName(studentName) to get search results
             $result = $this->load->model('ModelUsers');
             $result = $this->ModelUsers->searchquestion($formsearchquestion);
 
-            //create an empty array called data
             $data = array();
 
-            //add the results from the model which are stored in $result to data and give it key "student"
-            //we'll use this key to access the data in the view
+           
             $data['question'] = $result;
 
-            //load view search_student_by_name.php and pass to it the array data
             $this->load->view('adminpanel/searchedquestion', $data);
         } else {
-            //load view search_student_by_name.php and no data passed
             $this->load->view('adminpanel/searchedquestion');
         }
     }

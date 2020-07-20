@@ -211,6 +211,10 @@
             alert("please enter your email");
             return false;
         }
+		if (document.forms['register']['occupation'].value == "") {
+            alert("please enter your occupation");
+            return false;
+        }
         if (document.forms['register']['password'].value == "") {
             alert(" please enter a password");
             return false;

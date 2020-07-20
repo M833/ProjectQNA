@@ -1,4 +1,14 @@
 <?php $this->load->view("adminpanel/header"); ?>
+<script text="text/javascrpit">
+    function validateForm() {
+
+        if (document.forms['addform']['addanswer'].value == "") {
+            alert("please enter a valid answer");
+            return false;
+        }
+
+    }
+</script>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 
@@ -23,7 +33,7 @@
                 foreach ($result as $key => $value) {
                     echo "<tr>
 
-                    <form action=doaddanswer method='post'>
+                    <form name='addform' action=doaddanswer method='post' onsubmit='return validateForm()'>
                      <td>" . $counter . "</td>
                     <td>" . $value['first_name'] . "</td>
                     <td>" . $value['question'] . "</td>
